@@ -8,7 +8,8 @@ class Weather {
   int? clouds;
   List? iconList;
   String? icon;
-  double? wind_kmh;
+  String? wind_kmh;
+  String? durum;
 
 Weather({
   this.cityName,
@@ -20,17 +21,19 @@ Weather({
   this.iconList,
   this.icon,
   this.wind_kmh,
+  this.durum,
 });
   Weather.fromJson(Map<String, dynamic> json){
     cityName = json["name"];
     temp = json["main"]["temp"];
-    wind = json["wind"]["speed"];
+    wind = json["wind"]["speed"]*3.6;
     humidity = json["main"]["humidity"];
     feels_like= json["main"]["feels_like"];
     clouds = json["clouds"]["all"];
     iconList = json["weather"];
+    durum =json["weather"][0]["description"].toString();
     icon = json["weather"][0]["icon"].toString();
-    wind_kmh = wind!*3.6;
+    wind_kmh = wind!.toStringAsFixed(2);
 
 
   }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/services/weather_info_service.dart';
-import 'package:weather_app/widgets/AdditionalInfo.dart';
-import 'package:weather_app/widgets/current_weather.dart';
+import 'package:weather_app/models/AdditionalInfo.dart';
+import 'package:weather_app/models/current_weather.dart';
 
 import 'models/weather_model.dart';
 
@@ -67,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 100,
                     width: 100,
                     child: Image.asset('assets/${data!.icon}.png')),
+                Text('${data!.durum}'),
                 CurrentWeather('${data!.icon}',
                     '${data!.temp}', '${data!.cityName}'),
                 const SizedBox(
